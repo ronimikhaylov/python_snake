@@ -1,8 +1,8 @@
-from random import gammavariate
-import time
+import random
 from turtle import Screen, Turtle
 from snake import Snake
 from food import food
+import time
 from scoreboard import Scoreboard
 
 
@@ -15,7 +15,7 @@ segments = []
 starting_positions = [(0, 0), (-20, 0), (-40, 0)]
 
 snake = Snake()
-food = food()
+fd = food()
 scoreboard = Scoreboard()
 
 screen.listen()
@@ -31,15 +31,15 @@ while game_is_on:
     snake.move()
     # if the coordinates of the snake and the food are off by 20, then the snake has eaten the food
 
-    if snake.distance(food) < 15:
-        food.refresh()
+    if snake.head.distance(fd.distance()) < 15:
+        fd.refresh()
         snake.extend()
-        scoreboard.increase_score()
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        scoreboard.update_scoreboard()
+    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
         game_is_on = False
         scoreboard.game_over()
     for segment in snake.segments[1:]:
-        if snake.head.distance(segment) < 1:
+        if snake.head.distance(segment) < 10:
             game_is_on = False
             scoreboard.game_over()
 

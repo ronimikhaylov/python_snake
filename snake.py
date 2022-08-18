@@ -41,14 +41,14 @@ class Snake():
         if self.head.heading() != 180:
             self.head.setheading(0)
 
-    def distance(self, food):
-        x1 = self.head.xcor()
-        y1 = self.head.ycor()
-        coordinates = food.get_coordinates()
-        foodx = coordinates[0]
-        foody = coordinates[1]
-        distance = ((foodx - x1) ** 2 + (foody - y1) ** 2) ** 0.5
-        return distance
+    # def distance(self, food):
+    #     x1 = self.head.xcor()
+    #     y1 = self.head.ycor()
+    #     coordinates = food.get_coordinates()
+    #     foodx = coordinates[0]
+    #     foody = coordinates[1]
+    #     distance = ((foodx - x1) ** 2 + (foody - y1) ** 2) ** 0.5
+    #     return distance
 
     
 
