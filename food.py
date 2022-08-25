@@ -23,3 +23,4 @@ class food(Turtle):
         x1 = self.food.xcor()
         y1 = self.food.ycor()
         return x1, y1
+    
